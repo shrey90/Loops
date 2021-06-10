@@ -1,0 +1,5 @@
+mount=df -k|grep /home/shrey/sftp|awk '{print $5}'|tr -d '%'
+if [ $mount -gt 60 ]
+then
+echo "$mount" |mail -s "disk space alrt on $(hostname) at $(date)" example@gmail.com
+fi
